@@ -6,21 +6,26 @@ import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
+import EventBusyIcon from '@material-ui/icons/EventBusy';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import DateRangeIcon from '@material-ui/icons/DateRange';
+import LocalConvenienceStoreIcon from '@material-ui/icons/LocalConvenienceStore';
 import MailIcon from '@material-ui/icons/Mail';
 // import MenuIcon from '@material-ui/icons/Menu';
 // import Toolbar from '@material-ui/core/Toolbar';
 // import Typography from '@material-ui/core/Typography';
 import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle'; 
 import FaceIcon from '@material-ui/icons/Face';
-
+import DirectionsBusIcon from '@material-ui/icons/DirectionsBus';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+import PieChartIcon from '@material-ui/icons/PieChart';
+import AssessmentIcon from '@material-ui/icons/Assessment';
+import EventAvailableIcon from '@material-ui/icons/EventAvailable';
 
 import {
     BrowserRouter as Router,
@@ -37,7 +42,13 @@ import UserScreen from '../../components/UserTable'
 import ClassScreen from '../../components/ClassTable'
 import TeacherScreen from '../../components/TeacherTable'
 import StudentScreen from '../../components/StudentTable'
-import test from '../../components/test'
+import ScheduleScreen from '../../components/ScheduleTable'
+import StationScreen from '../../components/StationTable'
+import BusScreen from '../../components/BusTable'
+import AbsenceScreen from '../../components/AbsenceTable'
+import NoAttendanceScreen from '../../components/NoAttendanceTable'
+import StatisticScreen from '../../components/Statistics'
+import ChartScreen from '../../components/Chart'
 
 const drawerWidth = 240;
 
@@ -92,32 +103,67 @@ function Home(props) {
       <div className={classes.toolbar} />
       <Divider />
       <List>
-        <ListItem button key='Classes' onClick={() => navigation("classes")}>
-          <ListItemIcon><MeetingRoomIcon /></ListItemIcon>
-          <ListItemText primary='Lớp học'/>
-        </ListItem>
         <ListItem button key='Teachers' onClick={() => navigation("teachers")}>
           <ListItemIcon><AssignmentIndIcon /></ListItemIcon>
           <ListItemText primary='Giáo viên'/>
         </ListItem>
+
         <ListItem button key='User' onClick={() => navigation("users")}>
           <ListItemIcon><AccountCircleIcon /></ListItemIcon>
           <ListItemText primary='Phụ huynh'/>
         </ListItem>
+
         <ListItem button key='Student' onClick={() => navigation("students")}>
           <ListItemIcon><FaceIcon /></ListItemIcon>
           <ListItemText primary='Học sinh'/>
         </ListItem>
+
       </List>
       <Divider />
       <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        <ListItem button key='Classes' onClick={() => navigation("classes")}>
+          <ListItemIcon><MeetingRoomIcon /></ListItemIcon>
+          <ListItemText primary='Lớp học'/>
+        </ListItem>
+
+        <ListItem button key='Student' onClick={() => navigation("schedules")}>
+          <ListItemIcon><DateRangeIcon /></ListItemIcon>
+          <ListItemText primary='Thời khóa biểu'/>
+        </ListItem>
+      
+        <ListItem button key='destination' onClick={() => navigation("station")}>
+          <ListItemIcon><LocalConvenienceStoreIcon /></ListItemIcon>
+          <ListItemText primary='Điểm đến'/>
+        </ListItem>
+
+        <ListItem button key='Student' onClick={() => navigation("bus")}>
+          <ListItemIcon><DirectionsBusIcon /></ListItemIcon>
+          <ListItemText primary='Xe trường'/>
+        </ListItem>
       </List>
+      <Divider />
+      <List>
+        <ListItem button key='Student' onClick={() => navigation("absence")}>
+          <ListItemIcon><EventAvailableIcon /></ListItemIcon>
+          <ListItemText primary='Vắng có phép'/>
+        </ListItem>
+        <ListItem button key='Student' onClick={() => navigation("noattendance")}>
+          <ListItemIcon><EventBusyIcon /></ListItemIcon>
+          <ListItemText primary='Vắng không phép'/>
+        </ListItem>
+      </List>
+      <Divider />
+      <List>
+        <ListItem button key='Student' onClick={() => navigation("statistics")}>
+          <ListItemIcon><AssessmentIcon /></ListItemIcon>
+          <ListItemText primary='Thống kê'/>
+        </ListItem>
+        <ListItem button key='Student' onClick={() => navigation("chart")}>
+          <ListItemIcon><PieChartIcon /></ListItemIcon>
+          <ListItemText primary='Biểu đồ'/>
+        </ListItem>
+      </List>
+
     </div>
   );
 
@@ -158,7 +204,7 @@ function Home(props) {
         </Hidden>
       </nav>
       <main className={classes.content}>
-        {/* <div className={classes.toolbar} /> */}
+        <main></main>
         <Router>
             <Switch>
                 <Route exact path="/home" component={HomeScreen} />
@@ -166,7 +212,13 @@ function Home(props) {
                 <Route path="/home/classes" component={ClassScreen} />
                 <Route path="/home/teachers" component={TeacherScreen} />
                 <Route path="/home/students" component={StudentScreen} />
-                <Route path="/home/name=:name/room=:room" component={test} />
+                <Route path="/home/schedules" component={ScheduleScreen} />
+                <Route path="/home/station" component={StationScreen} />
+                <Route path="/home/bus" component={BusScreen} />
+                <Route path="/home/noattendance" component={NoAttendanceScreen} />
+                <Route path="/home/absence" component={AbsenceScreen} />
+                <Route path="/home/statistics" component={StatisticScreen} />
+                <Route path="/home/chart" component={ChartScreen} />
                 <Route component={NotFoundScreen} />
             </Switch>
         </Router>

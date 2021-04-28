@@ -1,12 +1,12 @@
 import React from 'react';
-import StudentTable from './StudentTable'
+import ScheduleTable from './ScheduleTable'
 import NavMenu from '../Home'
 
 const index = props => {
   return (
     <div>
       <NavMenu />
-      <StudentTable />
+      <ScheduleTable />
     </div>
   );
 };

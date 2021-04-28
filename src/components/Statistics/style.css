@@ -1,0 +1,27 @@
+.body {
+    width: 100%;
+    /* height: 500px; */
+    position: relative;
+    /* flex-direction: 'column'; */
+    margin-top: 50px;
+}
+
+.chart-statistics-area { 
+    width: 100%;
+    /* height: 500px; */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: 'column';
+    margin-top: 50px;
+}
+
+.chart-statistics {
+    width: 80%;
+    /* height: 500px; */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

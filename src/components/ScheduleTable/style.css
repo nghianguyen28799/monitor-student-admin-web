@@ -1,0 +1,64 @@
+.container-schedule {
+    height: 90vh;
+    position: relative;
+}
+
+.edit-schedule {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 5 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background: #fafafa;
+    transition: .3s linear;
+}
+
+.edit-schedule:hover {
+    cursor: pointer;
+    background: #E5E7E9;
+}
+
+.submit-schedule {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    right: 0;
+    margin: 5 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background: #fafafa;
+    transition: .3s linear;
+}
+
+.submit-schedule:hover {
+    cursor: pointer;
+    background: #E5E7E9;
+}
+
+.selector_space {
+    width: 100%;
+    height: 30px;
+    margin: auto,
+}
+
+.selector {
+    width: 200px;
+    height: 30px;
+    border: 1px solid;
+    margin: 0 auto;
+}
+
+.table-schedule {
+    border: 1px solid #9e9e9e63;
+    margin-top: 50px;
+}
+
+.td-table {
+    border: none,
+
+}

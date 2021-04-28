@@ -1,0 +1,17 @@
+.chart {
+    width: 100%;
+    margin-top: 100px;
+}
+
+.each-chart-area {
+    display: flex;
+    flex-direction: 'colunm';
+    width: 400px;
+}
+
+.selector-chart {
+    width: 100%;
+    display: flex;
+    justify-content: content;
+    margin-top: 70px
+}
